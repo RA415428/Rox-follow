@@ -18,7 +18,6 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Initialize Unity Ads
         UnityAds.initialize(getApplicationContext(), GAME_ID, TEST_MODE, new IUnityAdsInitializationListener() {
             @Override
             public void onInitializationComplete() {
@@ -29,7 +28,6 @@ public class MainActivity extends BridgeActivity {
             public void onInitializationFailed(UnityAds.UnityAdsInitializationError error, String message) {}
         });
 
-        // JavaScript Bridge for React
         getBridge().getWebView().addJavascriptInterface(new Object() {
             @JavascriptInterface
             public void showRewardedAd() {
